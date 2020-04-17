@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width-device-width, initial-scale = 1, shrink-to-fit=no">
+	<title>Jogo da Velha</title>
+
+	<link rel="stylesheet" type="text/css" href="bibliotecas/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/sb-admin.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<title>Document</title>
+
 </head>
 <body>
+
+<div class="row">
+	<div class="container">
+		<div class="col-md-12">
+
+
+		<h1 class="text-center mt-3 mb-3">Jogo da Velha</h1>
+			
+		<div class="text-center col-md-12">
+
+			<span>
+				<button class="col-md-2 btn btn-primary mt-sm-2 twoPlayers">2 - Jogadores</button>
+			</span>
+
+			<span class="">
+				<button class="col-md-2 btn btn-primary mt-sm-2 iaPlayers">Contra a IA</button>
+			</span>
+		</div>
+
+
+		<div id="tabuleiro" class="hide mt-4">
+				
+					<div class="caixa" id="block-1"></div>
+					<div class="caixa" id="block-2"></div>
+					<div class="caixa" id="block-3"></div>
+
+					<div class="caixa" id="block-4"></div>
+					<div class="caixa" id="block-5"></div>
+					<div class="caixa" id="block-6"></div>
+
+					<div class="caixa" id="block-7"></div>
+					<div class="caixa" id="block-8"></div>
+					<div class="caixa" id="block-9"></div>
+		
+
+			<div id="placar" class="container text-center">
+				<h2>Placar:</h2>
+				<span class="score-box">
+					<span id="x-score">X</span>:
+					<span id="scorePoint">0</span>
+				</span>
+
+				<span class="score-box">
+					<span id="o-score"></span>:
+					<span id="scorePoint2">0</span>
+				</span>
+			</div>
+		
+	<!--Elementos X, Bola e msg-->
+
+		<div class="hide container text-center" id="Marcadores">
+			<div class="x">X</div>
+			<div class="o"></div>
+		</div>
+
+	<!-- Fim do Row & Container -->	
+
+		</div> <!--Fim do Tabuleiro-->
+
+			<div id="msg" class="hide container text-center">
+				<p>Olá!</p>
+			</div>
+
+
+	</div>	
+</div>
+
 	<script src="js/script.js"></script>
+
+	<script src="bibliotecas/jquery/jquery.min.js"></script>
+	<script src="bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="bibliotecas/jquery-easing/jquery.easing.min.js"></script>
 </body>
 </html>
