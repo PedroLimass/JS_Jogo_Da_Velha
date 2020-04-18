@@ -105,9 +105,16 @@
 	background-color: #000;
 	color: #fff;
 	padding: 20px;
-	
+
 }
 
+.iaPlayers{
+	display: inline-block; 
+}
+
+.twoPlayers{
+	display: inline-block;
+}
 
 
 

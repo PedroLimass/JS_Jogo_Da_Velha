@@ -1,7 +1,7 @@
 let x = document.querySelector('.x');
 let o = document.querySelector('.o');
 let caixa = document.querySelectorAll(".caixa");
-let buts = document.querySelector('button');
+let buts = document.querySelectorAll('button');
 let mensager = document.querySelector('#msg');
 let mensagerP = document.querySelector('#msg p');
 
@@ -30,7 +30,12 @@ for (let i = 0; i < caixa.length; i++) {// Aqui ele transforma todas as caixas e
 			this.appendChild(cloneEl);
 
 			if(Player01 == Player02){
-				Player01++;		
+				Player01++;	
+				if(secondPlayer == 'iaPlayers'){
+					// IA jogando
+					computerIA();
+					Player02++;
+				}	
 			}else {
 				Player02++;				
 			}
@@ -239,9 +244,78 @@ function vencerdor (win) {
 		mensagerP.innerHTML = mss;
 		mensager.classList.remove("hide");
 
+		// Escoder msg
+		setTimeout(function(){
+			mensager.classList.add("hide");
+		},3000);
+
+		// Zerar tabuleiro
+
+		Player01 = 0;
+		Player02 = 0;
+
+		// Remover X & O
+
+		let caixasRemove = document.querySelectorAll(".caixa div");
+
+		for (var i = 0; i < caixasRemove.length; i++) {
+		 caixasRemove[i].parentNode.removeChild(caixasRemove[i]);
+		}
+
+
+}
+
+/* =========== BOTÕES EVENTOS ===================*/
+
+for (var i = 0; i < buts.length; i++) {
+
+	buts[i].addEventListener("click", function(){
+
+		secondPlayer = this.getAttribute("id");
+
+		for (let j = 0; j < buts.length; j++) {
+			buts[j].style.display = 'none';
+			
+		}
+
+		setTimeout(function () {
+			
+			let contai = document.querySelector('#tabuleiro');
+			contai.classList.remove('hide');
+
+		}, 500);
+
+
+	});
 }
 
 
+function computerIA(){
+	let bolaClone = o.cloneNode(true);
+	
+	counter = 0;
+	filler = 0;
+
+	for (var i = 0; i < caixa.length; i++) {
+		let aleatorio = Math.floor(Math.random() * 5);
+
+		if(caixa[i].childNodes[0] == undefined){
+			if(aleatorio <= 1){
+				caixa[i].appendChild(bolaClone);
+				counter++;
+				break;
+			}
+		}else{
+		
+			filler++;
+		}
+	}
+
+	if(counter == 0 && filler < 9){
+		computerIA();
+	}
+
+}
 
 
 
